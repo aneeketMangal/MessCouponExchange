@@ -15,7 +15,14 @@ def sell(message: object) -> None:
         messageComponents: List[str]  = messageJson['text'].split(" ")
         date: datetime = datetime.strptime(messageComponents[1], "%d/%m/%Y")
         slot: Slots = Slots(messageComponents[2])
-        coupon: Coupon = Coupon(user = user, date = date, slot = slot)
+        count = 1
+
+        if len(messageComponents) > 3:
+            count = int(messageComponents[3])
+
+        count = int(messageComponents[3])
+        coupon: Coupon = Coupon(user = user, date = date, slot = slot, count = count)
+
         DB_INSTANCE.deleteCoupon(coupon)
         BOT_INSTANCE.reply_to(message, f"Your coupon has been retracted")
         print("dfsa")
