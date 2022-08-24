@@ -21,7 +21,6 @@ def sell(message: object) -> None:
         if len(messageComponents) > 3:
             count = int(messageComponents[3])
 
-        count = int(messageComponents[3])
         coupon: Coupon = Coupon(user=user, date=date, slot=slot, count=count)
 
         resp: bool = DB_INSTANCE.deleteCoupon(coupon)
