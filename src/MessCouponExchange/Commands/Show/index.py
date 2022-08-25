@@ -28,7 +28,7 @@ def sell(message: object) -> None:
                 f"[{coupon.username}](tg://user?id={str(coupon.id)}) {coupon.date.strftime('%d/%m/%Y')} {coupon.slot} {coupon.count}"
             )
         print(respList)
-        BOT_INSTANCE.reply_to(message, ("\n").join(respList))
+        BOT_INSTANCE.reply_to(message, ("\n").join(respList), parse_mode="Markdown")
 
     except Exception as e:
         BOT_INSTANCE.reply_to(message, f"Something went wrong! Try again!")
