@@ -11,6 +11,7 @@ from src.MessCouponExchange import Constants
 def sell(message: object) -> None:
     """Function to trigger on /show command"""
     try:
+        print(message)
         messageJson = message.json
         print(messageJson)
         user: str = f"@{messageJson['from']['username']}"
