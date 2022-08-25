@@ -22,11 +22,12 @@ def sell(message: object) -> None:
             return
 
         respList: List[str] = []
-
+        print(couponList)
         for coupon in couponList:
             respList.append(
-                f"'['+{coupon.name}+'](tg://user?id='+str({coupon.id})+')' {coupon.date.strftime('%d/%m/%Y')} {coupon.slot} {coupon.count}"
+                f"'['+{coupon.username}+'](tg://user?id='+str({coupon.id})+')' {coupon.date.strftime('%d/%m/%Y')} {coupon.slot} {coupon.count}"
             )
+
         BOT_INSTANCE.reply_to(message, ("\n").join(respList))
 
     except Exception as e:
