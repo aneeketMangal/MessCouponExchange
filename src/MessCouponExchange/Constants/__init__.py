@@ -9,3 +9,5 @@ from .DatabaseConstants import SLOT
 from .DatabaseConstants import USER
 from .DatabaseConstants import INCORRECT_FORMAT_ERROR_MESSAGE
 from .DatabaseConstants import COUNT
+from .DatabaseConstants import ID
+from .DatabaseConstants import USERNAME

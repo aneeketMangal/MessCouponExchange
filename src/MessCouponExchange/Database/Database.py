@@ -21,7 +21,8 @@ class DatabaseProvider:
         print(data.slot)
         resp: Any = self.collection.find_one(
             {
-                Constants.USER: data.user,
+                Constants.ID: data.id,
+                Constants.USERNAME: data.username,
                 Constants.DATE: data.date,
                 Constants.SLOT: data.slot,
             }
@@ -32,7 +33,8 @@ class DatabaseProvider:
 
         self.collection.update_one(
             {
-                Constants.USER: data.user,
+                Constants.ID: data.id,
+                Constants.USERNAME: data.username,
                 Constants.DATE: data.date,
                 Constants.SLOT: data.slot,
             },
@@ -49,7 +51,8 @@ class DatabaseProvider:
         """function for deleting coupon entry"""
         resp: Any = self.collection.find_one(
             {
-                Constants.USER: data.user,
+                Constants.ID: data.id,
+                Constants.USERNAME: data.username,
                 Constants.DATE: data.date,
                 Constants.SLOT: data.slot,
             }
@@ -67,7 +70,8 @@ class DatabaseProvider:
         if finalCouponCount == 0:
             self.collection.delete_one(
                 {
-                    Constants.USER: data.user,
+                    Constants.ID: data.id,
+                    Constants.USERNAME: data.username,
                     Constants.DATE: data.date,
                     Constants.SLOT: data.slot,
                 }
@@ -77,7 +81,8 @@ class DatabaseProvider:
 
         self.collection.update_one(
             {
-                Constants.USER: data.user,
+                Constants.ID: data.id,
+                Constants.USERNAME: data.username,
                 Constants.DATE: data.date,
                 Constants.SLOT: data.slot,
             },

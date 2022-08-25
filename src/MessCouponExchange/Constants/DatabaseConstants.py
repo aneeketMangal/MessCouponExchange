@@ -1,6 +1,8 @@
 DATE = "date"
 SLOT = "slot"
 USER = "user"
+ID = "id"
+USERNAME = "username"
 COUNT = "count"
 DB_NAME = "MessCouponExchange"
 COLLECTION_NAME = "coupons"

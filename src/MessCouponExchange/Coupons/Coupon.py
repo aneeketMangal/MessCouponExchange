@@ -3,14 +3,15 @@ from src.MessCouponExchange.Coupons.Slots import Slots
 import datetime
 from pydantic import BaseModel
 
+
 class Coupon(BaseModel):
     """model for coupon"""
+
     id: int
-    name: str
+    username: str
     date: Optional[datetime.datetime]
     slot: Slots
     count: int = 1
 
-    class Config:  
+    class Config:
         use_enum_values = True
-    

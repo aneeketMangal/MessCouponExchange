@@ -13,7 +13,7 @@ def sell(message: object) -> None:
     try:
         messageJson = message.json
         id: int = messageJson["from"]["id"] if messageJson["from"]["id"] else -1
-        name: str = (
+        username: str = (
             messageJson["from"]["first_name"]
             if messageJson["from"]["first_name"]
             else "Unknown"
@@ -26,7 +26,9 @@ def sell(message: object) -> None:
         if len(messageComponents) > 3:
             count = int(messageComponents[3])
 
-        coupon: Coupon = Coupon(id=id, name=name, date=date, slot=slot, count=count)
+        coupon: Coupon = Coupon(
+            id=id, username=username, date=date, slot=slot, count=count
+        )
 
         resp: bool = DB_INSTANCE.deleteCoupon(coupon)
         if not resp:
