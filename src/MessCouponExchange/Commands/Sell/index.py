@@ -12,7 +12,9 @@ def sell(message: object) -> None:
     """Function to trigger on /show command"""
     try:
         messageJson = message.json
+        print(messageJson)
         user: str = f"@{messageJson['from']['username']}"
+        print(user)
         messageComponents: List[str] = messageJson["text"].split(" ")
         date: datetime = datetime.strptime(messageComponents[1], "%d/%m/%Y")
         currentDate: datetime = datetime.now()
@@ -40,5 +42,5 @@ def sell(message: object) -> None:
         print("dfsa")
 
     except Exception as e:
-        print(e)
+        print("errorShow", e)
         BOT_INSTANCE.reply_to(message, "Some error encoutered try again!")
