@@ -12,7 +12,12 @@ def sell(message: object) -> None:
     """Function to trigger on /show command"""
     try:
         messageJson = message.json
-        user: str = f"@{messageJson['from']['username']}"
+        id: int = messageJson["from"]["id"] if messageJson["from"]["id"] else -1
+        name: str = (
+            messageJson["from"]["first_name"]
+            if messageJson["from"]["first_name"]
+            else "Unknown"
+        )
         messageComponents: List[str] = messageJson["text"].split(" ")
         date: datetime = datetime.strptime(messageComponents[1], "%d/%m/%Y")
         slot: Slots = Slots(messageComponents[2])
@@ -21,7 +26,7 @@ def sell(message: object) -> None:
         if len(messageComponents) > 3:
             count = int(messageComponents[3])
 
-        coupon: Coupon = Coupon(user=user, date=date, slot=slot, count=count)
+        coupon: Coupon = Coupon(id=id, name=name, date=date, slot=slot, count=count)
 
         resp: bool = DB_INSTANCE.deleteCoupon(coupon)
         if not resp:

@@ -25,7 +25,7 @@ def sell(message: object) -> None:
 
         for coupon in couponList:
             respList.append(
-                f"{coupon.user} {coupon.date.strftime('%d/%m/%Y')} {coupon.slot} {coupon.count}"
+                f"'['+{coupon.name}+'](tg://user?id='+str({coupon.id})+')' {coupon.date.strftime('%d/%m/%Y')} {coupon.slot} {coupon.count}"
             )
         BOT_INSTANCE.reply_to(message, ("\n").join(respList))
 

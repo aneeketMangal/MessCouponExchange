@@ -11,11 +11,13 @@ from src.MessCouponExchange import Constants
 def sell(message: object) -> None:
     """Function to trigger on /show command"""
     try:
-        print(message)
         messageJson = message.json
-        print(messageJson)
-        user: str = f"@{messageJson['from']['username']}"
-        print(user)
+        id: int = messageJson["from"]["id"] if messageJson["from"]["id"] else -1
+        name: str = (
+            messageJson["from"]["first_name"]
+            if messageJson["from"]["first_name"]
+            else "Unknown"
+        )
         messageComponents: List[str] = messageJson["text"].split(" ")
         date: datetime = datetime.strptime(messageComponents[1], "%d/%m/%Y")
         currentDate: datetime = datetime.now()
@@ -34,7 +36,7 @@ def sell(message: object) -> None:
         count = 1
         if len(messageComponents) > 3:
             count = int(messageComponents[3])
-        coupon: Coupon = Coupon(user=user, date=date, slot=slot, count=count)
+        coupon: Coupon = Coupon(id = id, name=name, date=date, slot=slot, count=count)
         print(coupon)
         DB_INSTANCE.addCoupons(coupon)
         BOT_INSTANCE.reply_to(

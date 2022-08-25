@@ -5,7 +5,8 @@ from pydantic import BaseModel
 
 class Coupon(BaseModel):
     """model for coupon"""
-    user: str
+    id: int
+    name: str
     date: Optional[datetime.datetime]
     slot: Slots
     count: int = 1
