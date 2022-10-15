@@ -14,7 +14,6 @@ from src.MessCouponExchange import Constants
 def sell(message: object) -> None:
 
     date: str = "Today"
-    slot: Slots = Slots()
 
     def process_callback_1(query):
         if query.data == "cb_today":
