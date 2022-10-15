@@ -4,7 +4,7 @@ import time
 
 while True:
     try:
-        BOT_INSTANCE.polling(none_stop=True)
+        BOT_INSTANCE.infinity_polling(none_stop=True)
 
     except Exception as e:
         print(e)

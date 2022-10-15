@@ -5,7 +5,7 @@ from src.MessCouponExchange.Services.Services import DB_INSTANCE
 from src.MessCouponExchange.Coupons.Slots import Slots
 from src.MessCouponExchange.Services import BOT_INSTANCE
 from src.MessCouponExchange import Constants
-
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @BOT_INSTANCE.message_handler(commands=[Constants.SELL])
 def sell(message: object) -> None:
