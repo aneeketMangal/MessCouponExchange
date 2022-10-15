@@ -10,9 +10,6 @@ from src.MessCouponExchange.Services import BOT_INSTANCE
 from src.MessCouponExchange import Constants
 
 
-@BOT_INSTANCE.callback_query_handler(
-    lambda query: query.data in ["cb_today", "cb_tomorrow"]
-)
 @BOT_INSTANCE.message_handler(commands=[Constants.SELL])
 def sell(message: object) -> None:
 
