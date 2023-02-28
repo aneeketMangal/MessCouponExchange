@@ -30,7 +30,6 @@ def sell(message: object) -> None:
 
     # """Function to trigger on /show command"""
     # try:
-
     #     messageJson = message.json
     #     id: int = messageJson["from"]["id"] if messageJson["from"]["id"] else -1
     #     username: str = (
